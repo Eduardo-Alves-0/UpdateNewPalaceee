@@ -1,0 +1,46 @@
+$font-family: "Julius Sans One", sans-serif;
+$font-family-logo: "Kantumruy Pro", sans-serif;
+
+// Cores principais
+$color-primary: #fff;
+$color-secondary: #212429;
+$color-yellow: #d4af37;
+$color-hover: #e9b91d;
+$color-black: #000;
+
+// Texto
+$color-gray: #6b6b6b;
+$color-text-dark: #2d2d2d;
+$color-text-muted: #4a4a4a;
+$color-text-soft: #555;
+$color-text-pill: #5a5a5a;
+
+// Fundos
+$color-bg-section-dark: #232428;
+$color-bg-light: #f8f8f8;
+$color-bg-lighter: #f0f0f0;
+$color-bg-pill: #e8e8e8;
+$color-bg-card-hover: #eee;
+$color-bg-dot: #d0d0d0;
+$color-bg-dot-hover: #b0b0b0;
+
+// Bordas
+$color-border: #ccc;
+$color-border-light: #e0e0e0;
+$color-border-lighter: #f0f0f0;
+
+// Navbar (fixo: fundo ao sair do hero)
+$navbar-bg-scrolled: rgba(35, 36, 40, 0.92);
+
+// Sombras e overlays
+$color-overlay: rgba(0, 0, 0, 0.5);
+$color-shadow: rgba(0, 0, 0, 0.08);
+$color-shadow-hover: rgba(0, 0, 0, 0.12);
+$color-shadow-drawer: rgba(0, 0, 0, 0.2);
+$color-divider-light: rgba(255, 255, 255, 0.08);
+
+// Breakpoints (mobile-first)
+$breakpoint-sm: 480px;   // mobile pequeno
+$breakpoint-nav: 768px;  // layout geral (hero, sections)
+$breakpoint-nav-desktop: 1025px; // menu desktop acima disto; hamburger em mobile + tablet (< 1025px)
+
