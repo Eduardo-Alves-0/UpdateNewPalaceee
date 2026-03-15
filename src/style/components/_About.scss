@@ -1,133 +1,136 @@
 @use "../scss/variables" as *;
 
 .about {
-    padding: 2rem 1rem;
+  padding: 2rem 1rem;
 
-    @media (min-width: $breakpoint-sm) {
-        padding: 3rem 1.5rem;
-    }
+  @media (min-width: $breakpoint-sm) {
+    padding: 3rem 1.5rem;
+  }
 
-    @media (min-width: $breakpoint-nav) {
-        padding: 5rem 3rem;
-    }
+  @media (min-width: $breakpoint-nav) {
+    padding: 5rem 3rem;
+  }
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-    max-width: 1200px;
-    margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
 
-    @media (min-width: $breakpoint-nav) {
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-    }
+  @media (min-width: $breakpoint-nav) {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
 }
 
 .about-col-text {
-    min-width: 0;
-    margin-top: 0.5rem;
+  min-width: 0;
+  margin-top: 0.5rem;
 
-    @media (min-width: $breakpoint-nav) {
-        margin-top: 1.8rem;
-    }
+  @media (min-width: $breakpoint-nav) {
+    margin-top: 1.8rem;
+  }
 }
 
 .about-text {
-    font-family: $font-family-logo;
-    margin-top: 2rem;
-    font-size: 1rem;
+  font-family: $font-family-logo;
+  margin-top: 2rem;
+  font-size: 1rem;
 
-    @media (min-width: $breakpoint-nav) {
-        margin-top: 4.8rem;
-        font-size: 1.25rem;
+  @media (min-width: $breakpoint-nav) {
+    margin-top: 4.8rem;
+    font-size: 1.25rem;
+  }
+
+  p {
+    margin: 0 0 1rem;
+
+    &:last-child {
+      margin-bottom: 0;
     }
+  }
 
-    p {
-        margin: 0 0 1rem;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    span {
-        color: $color-yellow;
-        font-weight: 600;
-    }
+  span {
+    color: $color-yellow;
+    font-weight: 600;
+  }
 }
 
 .about-col-video {
-    min-width: 0;
+  min-width: 0;
 }
 
 .about-video-container {
-    position: relative;
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    background: $color-black;
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: $color-black;
 
-    video {
-        width: 100%;
-        height: auto;
-        max-height: 470px;
-        object-fit: cover;
-        display: block;
-    }
+  video {
+    width: 100%;
+    height: auto;
+    max-height: 470px;
+    object-fit: cover;
+    display: block;
+  }
 }
 
 .about-hr {
-    margin-top: 2rem;
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, $color-gray, transparent);
-    opacity: 0.7;
+  margin-top: 2rem;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, $color-gray, transparent);
+  opacity: 0.7;
 
-    @media (min-width: $breakpoint-nav) {
-        margin-top: 3rem;
-    }
+  @media (min-width: $breakpoint-nav) {
+    margin-top: 3rem;
+  }
 }
 
 .about-stats {
-    font-family: $font-family-logo;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
+  font-family: $font-family-logo;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 1rem;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
 
-    @media (min-width: $breakpoint-nav) {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 1rem;
-    }
+  @media (min-width: $breakpoint-nav) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+  }
 
+  span {
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  @media (min-width: $breakpoint-nav) {
     span {
-        font-size: 1.4rem;
-        font-weight: 500;
+      font-size: 1.7rem;
     }
+  }
 
-    @media (min-width: $breakpoint-nav) {
-        span {
-            font-size: 1.7rem;
-        }
-    }
+  p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
 
+  @media (min-width: $breakpoint-nav) {
     p {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        font-size: 0.9rem;
-        margin-top: 2rem;
+      font-size: 1rem;
+      margin-top: 3.5rem;
     }
-
-    @media (min-width: $breakpoint-nav) {
-        p {
-            font-size: 1rem;
-            margin-top: 3.5rem;
-        }
-    }
+  }
 }
