@@ -72,7 +72,7 @@ export default function Footer() {
                         </li>
                         <li>
                             <Phone size={18} className="footer-icon" aria-hidden />
-                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+55 (81) 98868-0553</a>
+                            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">+55 (81) 99675-9099</a>
                         </li>
                         <li>
                             <Mail size={18} className="footer-icon" aria-hidden />
