@@ -141,10 +141,11 @@ export default function PropertiesLayout({
                                 className="properties-carousel__slide"
                             >
                                 <img
-                                    src={getCloudinaryUrl(carousel[currentIndex % carousel.length].src)}
+                                    src={getCloudinaryUrl(carousel[currentIndex % carousel.length].src, { width: 900, crop: true })}
                                     alt={carousel[currentIndex % carousel.length].alt}
                                     title={carousel[currentIndex % carousel.length].alt}
                                     draggable={false}
+                                    sizes="(max-width: 640px) 100vw, 800px"
                                 />
                             </m.div>
                         </AnimatePresence>
@@ -319,10 +320,11 @@ export default function PropertiesLayout({
                                                 className="properties-planta__slide"
                                             >
                                                 <img
-                                                    src={getCloudinaryUrl(plantas[plantIndex].src)}
+                                                    src={getCloudinaryUrl(plantas[plantIndex].src, { width: 900, crop: true })}
                                                     alt={plantas[plantIndex].alt}
                                                     title={plantas[plantIndex].alt}
                                                     draggable={false}
+                                                    sizes="(max-width: 640px) 100vw, 800px"
                                                 />
                                             </m.div>
                                         </AnimatePresence>

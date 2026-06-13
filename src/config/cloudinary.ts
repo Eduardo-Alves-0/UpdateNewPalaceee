@@ -1,8 +1,3 @@
-/**
- * URLs das imagens no Cloudinary.
- * Configure VITE_CLOUDINARY_CLOUD_NAME no .env (veja docs/CLOUDINARY.md).
- * Se não estiver configurado, retorna path vazio e o código deve usar fallback local.
- */
 import { env } from "./env";
 const cloudName = env.VITE_CLOUDINARY_CLOUD_NAME || undefined;
 const baseImageUrl = cloudName
@@ -19,14 +14,28 @@ const baseVideoUrl = cloudName
  */
 export function getCloudinaryUrl(
     path: string,
-    options?: { width?: number }
+    options?: { width?: number; height?: number; crop?: boolean }
 ): string {
     if (!baseImageUrl || !path) return "";
     const cleanPath = path.replace(/^\//, "");
     if (options?.width) {
-        return `${baseImageUrl}/w_${options.width},f_auto,q_auto/${cleanPath}`;
+        const transforms = options.crop
+            ? `w_${options.width},h_${options.height ?? options.width},c_fill,g_auto,f_auto,q_auto`
+            : `w_${options.width},f_auto,q_auto`;
+        return `${baseImageUrl}/${transforms}/${cleanPath}`;
     }
     return `${baseImageUrl}/f_auto,q_auto/${cleanPath}`;
+}
+
+// Gera srcSet para imagens responsivas
+export function getCloudinaryUrlSrcSet(
+    path: string,
+    widths: number[],
+    crop?: boolean
+): string {
+    return widths
+        .map((w) => `${getCloudinaryUrl(path, { width: w, crop })} ${w}w`)
+        .join(", ");
 }
 
 /**
