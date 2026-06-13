@@ -67,6 +67,7 @@
   position: relative;
   width: 100%;
   max-width: 280px;
+  aspect-ratio: 9 / 16; // vídeo vertical
   margin: 0 auto;
   border-radius: 12px;
   overflow: hidden;
@@ -74,8 +75,7 @@
 
   video {
     width: 100%;
-    height: auto;
-    max-height: 470px;
+    height: 100%;
     object-fit: cover;
     display: block;
   }
