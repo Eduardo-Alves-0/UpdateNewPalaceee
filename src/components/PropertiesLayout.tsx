@@ -5,6 +5,7 @@ import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { getCloudinaryUrl } from "../config/cloudinary";
 import { buildWhatsAppUrl } from "../utils/whatsapp";
+import { sanitizeExternalUrl } from "../utils/safeUrl";
 import { env } from "../config/env";
 import type { ImageItem, PlantaItem } from "../types/property";
 import "../style/components/_PropertiesLayout.scss";
@@ -130,6 +131,7 @@ export default function PropertiesLayout({
 
     const envNumber = env.VITE_WHATSAPP_NUMBER;
     const whatsappHref = buildWhatsAppUrl(whatsapp || envNumber);
+    const safeLocationUrl = sanitizeExternalUrl(locationUrl);
 
     return (
         <div className="properties-layout">
@@ -197,8 +199,8 @@ export default function PropertiesLayout({
                     <section className="properties-details">
                         <p className="properties-details__location">
                             <MapPin size={18} aria-hidden className="properties-details__icon" />
-                            {locationUrl ? (
-                                <a href={locationUrl} target="_blank" rel="noopener noreferrer" className="properties-details__location-link">
+                            {safeLocationUrl ? (
+                                <a href={safeLocationUrl} target="_blank" rel="noopener noreferrer" className="properties-details__location-link">
                                     {location}
                                 </a>
                             ) : (

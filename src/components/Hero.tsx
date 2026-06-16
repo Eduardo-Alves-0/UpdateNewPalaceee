@@ -75,28 +75,28 @@ export default function Hero() {
 
                 <div className="hero-images">
                     <m.img
-                        src={getCloudinaryUrl("v1770326692/empreendimentoBrisaDosNobres_kcaqav.jpg") || "https://res.cloudinary.com/dkgjwrjpv/image/upload/v1770326692/empreendimentoBrisaDosNobres_kcaqav.jpg"}
+                        src={getCloudinaryUrl("v1770326692/empreendimentoBrisaDosNobres_kcaqav.jpg")}
                         alt="Brisas Dos Nobres"
                         title="Brisas Dos Nobres"
                         className="hero-img-1"
                         {...motionImg1}
                     />
                     <m.img
-                        src={getCloudinaryUrl("v1770326804/StartCostaDouradaGuarita_psiyam.jpg") || "https://res.cloudinary.com/dkgjwrjpv/image/upload/v1770326804/StartCostaDouradaGuarita_psiyam.jpg"}
+                        src={getCloudinaryUrl("v1770326804/StartCostaDouradaGuarita_psiyam.jpg")}
                         alt="Start Costa Dourada"
                         title="Start Costa Dourada"
                         className="hero-img-2"
                         {...motionImg2}
                     />
                     <m.img
-                        src={getCloudinaryUrl("v1770326731/empreendimentoLikeBoaVista_bmd9f0.png") || "https://res.cloudinary.com/dkgjwrjpv/image/upload/v1770326731/empreendimentoLikeBoaVista_bmd9f0.png"}
+                        src={getCloudinaryUrl("v1770326731/empreendimentoLikeBoaVista_bmd9f0.png")}
                         alt="Like Boa Vista"
                         title="Like Boa Vista"
                         className="hero-img-3"
                         {...motionImg3}
                     />
                     <m.img
-                        src={getCloudinaryUrl("v1770326815/empreendimentoStartRecife_qfyekj.jpg") || "https://res.cloudinary.com/dkgjwrjpv/image/upload/v1770326815/empreendimentoStartRecife_qfyekj.jpg"}
+                        src={getCloudinaryUrl("v1770326815/empreendimentoStartRecife_qfyekj.jpg")}
                         alt="Start Recife"
                         title="Start Recife"
                         className="hero-img-4"

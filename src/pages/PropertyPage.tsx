@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import PropertiesLayout from "../components/PropertiesLayout";
 import { properties } from "../data/properties";
 import slugify from "../utils/slugify";
+import { buildGoogleMapsSearchUrl, sanitizeExternalUrl } from "../utils/safeUrl";
 
 interface PropertyPageProps {
   /** Quando a rota não tem :slug (ex: /patio-hori), passa o slug por prop */
@@ -25,7 +26,8 @@ export default function PropertyPage({ slug: slugProp }: PropertyPageProps = {})
 
   if (!property) return <Navigate to="/" replace />;
 
-  const locationUrl = property.locationUrl ?? (property.location ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(property.location)}` : undefined);
+  const locationUrl = sanitizeExternalUrl(property.locationUrl)
+    || (property.location ? buildGoogleMapsSearchUrl(property.location) : undefined);
 
   return (
     <>

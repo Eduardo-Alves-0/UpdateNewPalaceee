@@ -24,12 +24,9 @@ export default function Contacts() {
         <div className="contacts-video">
           <video autoPlay muted loop playsInline controls>
             <source
-              src={
-                getCloudinaryVideoUrl(
-                  "v1773249617/videoLocalizacao_gmzo5c.mp4",
-                ) ||
-                "https://res.cloudinary.com/dkgjwrjpv/video/upload/v1773249617/videoLocalizacao_gmzo5c.mp4"
-              }
+              src={getCloudinaryVideoUrl(
+                "v1773249617/videoLocalizacao_gmzo5c.mp4",
+              )}
               type="video/mp4"
             />
           </video>
@@ -44,6 +41,7 @@ export default function Contacts() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              sandbox="allow-scripts allow-same-origin allow-popups"
               title="Localização Imobiliária New Palace"
             />
           </div>

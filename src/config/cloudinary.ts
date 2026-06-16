@@ -12,12 +12,17 @@ const baseVideoUrl = cloudName
  * @param path - Caminho no Cloudinary (ex.: "newpalace/hero/empreendimentoBrisaDosNobres.jpg")
  * @param options - Opcional: width para redimensionar, f_auto e q_auto aplicados
  */
+function sanitizeCloudinaryPath(path: string): string {
+    return path.replace(/^\//, "").replace(/\.\./g, "").replace(/^https?:\/\//i, "");
+}
+
 export function getCloudinaryUrl(
     path: string,
     options?: { width?: number; height?: number; crop?: boolean }
 ): string {
     if (!baseImageUrl || !path) return "";
-    const cleanPath = path.replace(/^\//, "");
+    const cleanPath = sanitizeCloudinaryPath(path);
+    if (!cleanPath) return "";
     if (options?.width) {
         const transforms = options.crop
             ? `w_${options.width},h_${options.height ?? options.width},c_fill,g_auto,f_auto,q_auto`
@@ -44,7 +49,8 @@ export function getCloudinaryUrlSrcSet(
  */
 export function getCloudinaryVideoUrl(path: string): string {
     if (!baseVideoUrl || !path) return "";
-    const cleanPath = path.replace(/^\//, "");
+    const cleanPath = sanitizeCloudinaryPath(path);
+    if (!cleanPath) return "";
     return `${baseVideoUrl}/${cleanPath}`;
 }
 

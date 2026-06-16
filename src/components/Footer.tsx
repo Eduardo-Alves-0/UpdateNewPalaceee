@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import '../style/components/_Footer.scss';
 import { MapPin, Phone, Mail, Instagram, BriefcaseBusiness } from 'lucide-react';
-import { buildWhatsAppUrl } from '../utils/whatsapp';
+import { buildWhatsAppUrl } from "../utils/whatsapp";
+import { buildGmailComposeUrl } from "../utils/safeUrl";
 import { env } from '../config/env';
 import logo from '/logo.jpeg';
 import { scrollToSection } from '../utils/scroll';
@@ -30,6 +31,7 @@ function useHandleNavClick() {
 
 export default function Footer() {
     const whatsappUrl = buildWhatsAppUrl(env.VITE_WHATSAPP_NUMBER);
+    const gmailUrl = buildGmailComposeUrl(env.VITE_EMAIL, "Contato - New Palace Imobiliária");
     const handleNavClick = useHandleNavClick();
 
     return (
@@ -47,9 +49,11 @@ export default function Footer() {
                         Transformando sonhos em realidade desde 2023. Sua imobiliária de confiança para encontrar o imóvel perfeito.
                     </p>
                     <div className="footer-social">
-                        <a href="https://www.instagram.com/imobiliarianewpalace/" aria-label="Instagram"><Instagram size={18} /></a>
+                        <a href="https://www.instagram.com/imobiliarianewpalace/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={18} /></a>
                         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><Phone size={18} /></a>
-                        <a href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${env.VITE_EMAIL}&su=${encodeURIComponent('Contato - New Palace Imobiliária')}`} target="_blank" rel="noopener noreferrer" aria-label="E-mail"><Mail size={18} /></a>
+                        {gmailUrl && (
+                            <a href={gmailUrl} target="_blank" rel="noopener noreferrer" aria-label="E-mail"><Mail size={18} /></a>
+                        )}
                     </div>
                 </div>
 
@@ -76,7 +80,11 @@ export default function Footer() {
                         </li>
                         <li>
                             <Mail size={18} className="footer-icon" aria-hidden />
-                            <a href={`https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${env.VITE_EMAIL}&su=${encodeURIComponent('Contato - New Palace Imobiliária')}`} target="_blank" rel="noopener noreferrer">{env.VITE_EMAIL}</a>
+                            {gmailUrl ? (
+                                <a href={gmailUrl} target="_blank" rel="noopener noreferrer">{env.VITE_EMAIL}</a>
+                            ) : (
+                                <span>{env.VITE_EMAIL}</span>
+                            )}
                         </li>
                         <li>
                             <BriefcaseBusiness size={18} className="footer-icon" aria-hidden />

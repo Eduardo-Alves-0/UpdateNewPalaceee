@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import PropertyPage from "./pages/PropertyPage";
@@ -154,6 +155,7 @@ function App() {
         />
         <Route path="/properties/:slug" element={<PropertyPage />} />
       </Routes>
+      <Analytics />
     </div>
   );
 }

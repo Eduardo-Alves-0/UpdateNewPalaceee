@@ -20,7 +20,7 @@ export default function About() {
                 <div className="about-col about-col-video">
                     <div className="about-video-container">
                         <video autoPlay muted loop playsInline controls>
-                            <source src={getCloudinaryVideoUrl("v1770331993/videoApresentacao_baqcum.mp4") || "https://res.cloudinary.com/dkgjwrjpv/video/upload/v1770331993/videoApresentacao_baqcum.mp4"} type="video/mp4" />
+                            <source src={getCloudinaryVideoUrl("v1770331993/videoApresentacao_baqcum.mp4")} type="video/mp4" />
                         </video>
                     </div>
                 </div>
