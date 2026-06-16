@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronLeft, ChevronRight, MapPin, Square, BedDouble, Bath, Sun } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Square, BedDouble, Bath, Sun, X } from "lucide-react";
 import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
 import { getCloudinaryUrl } from "../config/cloudinary";
@@ -50,6 +50,7 @@ export default function PropertiesLayout({
     const [direction, setDirection] = useState<number>(0);
     const [plantIndex, setPlantIndex] = useState(initialPlantIndex);
     const [plantDirection, setPlantDirection] = useState<number>(0);
+    const [plantaLightboxOpen, setPlantaLightboxOpen] = useState(false);
     const totalSlides = carousel.length;
 
     const goNext = useCallback(() => {
@@ -93,6 +94,19 @@ export default function PropertiesLayout({
         const timer = setInterval(goNext, 5000);
         return () => clearInterval(timer);
     }, [goNext, totalSlides]);
+
+    useEffect(() => {
+        if (!plantaLightboxOpen) return;
+        const onKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setPlantaLightboxOpen(false);
+        };
+        document.body.style.overflow = "hidden";
+        window.addEventListener("keydown", onKeyDown);
+        return () => {
+            document.body.style.overflow = "";
+            window.removeEventListener("keydown", onKeyDown);
+        };
+    }, [plantaLightboxOpen]);
 
     const slideVariants = {
         enter: (dir: number) => ({
@@ -319,13 +333,20 @@ export default function PropertiesLayout({
                                                 exit="exit"
                                                 className="properties-planta__slide"
                                             >
-                                                <img
-                                                    src={getCloudinaryUrl(plantas[plantIndex].src, { width: 900, crop: true })}
-                                                    alt={plantas[plantIndex].alt}
-                                                    title={plantas[plantIndex].alt}
-                                                    draggable={false}
-                                                    sizes="(max-width: 640px) 100vw, 800px"
-                                                />
+                                                <button
+                                                    type="button"
+                                                    className="properties-planta__image-btn"
+                                                    onClick={() => setPlantaLightboxOpen(true)}
+                                                    aria-label={`Ampliar ${plantas[plantIndex].alt}`}
+                                                >
+                                                    <img
+                                                        src={getCloudinaryUrl(plantas[plantIndex].src, { width: 900, crop: true })}
+                                                        alt={plantas[plantIndex].alt}
+                                                        title={plantas[plantIndex].alt}
+                                                        draggable={false}
+                                                        sizes="(max-width: 640px) 100vw, 800px"
+                                                    />
+                                                </button>
                                             </m.div>
                                         </AnimatePresence>
                                     </div>
@@ -379,6 +400,48 @@ export default function PropertiesLayout({
                     </div>
                 </div>
             </section>
+
+            <AnimatePresence>
+                {plantaLightboxOpen && plantas[plantIndex] && (
+                    <m.div
+                        key="planta-lightbox"
+                        className="properties-planta-lightbox"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        role="dialog"
+                        aria-modal="true"
+                        aria-label={plantas[plantIndex].alt}
+                    >
+                        <button
+                            type="button"
+                            className="properties-planta-lightbox__backdrop"
+                            onClick={() => setPlantaLightboxOpen(false)}
+                            aria-label="Fechar visualização"
+                        />
+                        <button
+                            type="button"
+                            className="properties-planta-lightbox__close"
+                            onClick={() => setPlantaLightboxOpen(false)}
+                            aria-label="Fechar"
+                        >
+                            <X size={28} aria-hidden />
+                        </button>
+                        <m.img
+                            key={plantIndex}
+                            className="properties-planta-lightbox__image"
+                            src={getCloudinaryUrl(plantas[plantIndex].src)}
+                            alt={plantas[plantIndex].alt}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.2 }}
+                            draggable={false}
+                        />
+                    </m.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }
