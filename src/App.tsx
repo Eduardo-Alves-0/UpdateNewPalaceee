@@ -144,6 +144,14 @@ function App() {
           path="/viva-vida-primavera"
           element={<PropertyPage slug="viva-vida-primavera" />}
         />
+        <Route
+          path="/araca-prime"
+          element={<PropertyPage slug="araca-prime" />}
+        />
+        <Route
+          path="/mirante-belvedere"
+          element={<PropertyPage slug="mirante-belvedere" />}
+        />
         <Route path="/properties/:slug" element={<PropertyPage />} />
       </Routes>
     </div>

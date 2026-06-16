@@ -1,6 +1,4 @@
 import "@fontsource/julius-sans-one/400.css";          // Julius só tem weight 400
-
-import "@fontsource/julius-sans-one/400.css";
 import "@fontsource/kantumruy-pro/400.css";
 import "@fontsource/kantumruy-pro/700.css";
 
