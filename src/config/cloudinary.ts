@@ -24,9 +24,10 @@ export function getCloudinaryUrl(
     const cleanPath = sanitizeCloudinaryPath(path);
     if (!cleanPath) return "";
     if (options?.width) {
-        const transforms = options.crop
-            ? `w_${options.width},h_${options.height ?? options.width},c_fill,g_auto,f_auto,q_auto`
-            : `w_${options.width},f_auto,q_auto`;
+        const transforms =
+            options.crop && options.height
+                ? `w_${options.width},h_${options.height},c_fill,g_auto,f_auto,q_auto`
+                : `w_${options.width},f_auto,q_auto`;
         return `${baseImageUrl}/${transforms}/${cleanPath}`;
     }
     return `${baseImageUrl}/f_auto,q_auto/${cleanPath}`;
