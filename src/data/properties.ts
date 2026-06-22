@@ -69,7 +69,7 @@ export const properties: Property[] = [
         ],
     },
     {
-        id: "36",
+        id: "38",
         image: getCloudinaryUrl("v1782165298/bosqueRecifeFachada_drtvfp.jpg"),
         name: "Bosque Recife",
         location: "Av. da Recuperação, Passarinho, Recife - PE",
