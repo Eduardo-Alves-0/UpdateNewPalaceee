@@ -154,6 +154,7 @@ function App() {
           element={<PropertyPage slug="mirante-belvedere" />}
         />
         <Route path="/properties/:slug" element={<PropertyPage />} />
+        <Route path="/bosque-recife" element={<PropertyPage slug="bosque-recife" />} />
       </Routes>
       <Analytics />
     </div>
