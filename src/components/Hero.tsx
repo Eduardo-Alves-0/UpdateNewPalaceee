@@ -76,28 +76,30 @@ export default function Hero() {
                 <div className="hero-images">
                     <m.img
                         src={getCloudinaryUrl("v1770326692/empreendimentoBrisaDosNobres_kcaqav.jpg")}
-                        alt="Brisas Dos Nobres"
+                        alt="Empreendimento Brisas Dos Nobres em Recife - New Palace"
                         title="Brisas Dos Nobres"
                         className="hero-img-1"
+                        fetchPriority="high"
+                        decoding="async"
                         {...motionImg1}
                     />
                     <m.img
                         src={getCloudinaryUrl("v1770326804/StartCostaDouradaGuarita_psiyam.jpg")}
-                        alt="Start Costa Dourada"
+                        alt="Empreendimento Start Costa Dourada - New Palace"
                         title="Start Costa Dourada"
                         className="hero-img-2"
                         {...motionImg2}
                     />
                     <m.img
                         src={getCloudinaryUrl("v1770326731/empreendimentoLikeBoaVista_bmd9f0.png")}
-                        alt="Like Boa Vista"
+                        alt="Empreendimento Like Boa Vista em Recife - New Palace"
                         title="Like Boa Vista"
                         className="hero-img-3"
                         {...motionImg3}
                     />
                     <m.img
                         src={getCloudinaryUrl("v1770326815/empreendimentoStartRecife_qfyekj.jpg")}
-                        alt="Start Recife"
+                        alt="Empreendimento Start Recife - New Palace"
                         title="Start Recife"
                         className="hero-img-4"
                         {...motionImg4}

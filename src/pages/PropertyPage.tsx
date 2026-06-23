@@ -3,8 +3,18 @@ import { useParams, Navigate } from "react-router-dom";
 import Navbar from "../components/NavBar";
 import Footer from "../components/Footer";
 import PropertiesLayout from "../components/PropertiesLayout";
+import Seo from "../components/Seo";
 import { properties } from "../data/properties";
-import slugify from "../utils/slugify";
+import { findPropertyBySlug } from "../utils/propertySlug";
+import {
+  buildPropertyBreadcrumbJsonLd,
+  buildPropertyDescription,
+  buildPropertyListingJsonLd,
+  buildPropertyTitle,
+  getPropertyCanonicalPath,
+  getPropertyKeywords,
+  getPropertyOgImage,
+} from "../utils/seo";
 import { buildGoogleMapsSearchUrl, sanitizeExternalUrl } from "../utils/safeUrl";
 
 interface PropertyPageProps {
@@ -18,10 +28,7 @@ export default function PropertyPage({ slug: slugProp }: PropertyPageProps = {})
 
   const property = useMemo(() => {
     if (!slug) return undefined;
-    return properties.find((p) => {
-      const pSlug = p.link ? p.link.replace(/^\//, "") : slugify(p.name);
-      return pSlug === slug;
-    });
+    return findPropertyBySlug(slug, properties);
   }, [slug]);
 
   if (!property) return <Navigate to="/" replace />;
@@ -29,8 +36,23 @@ export default function PropertyPage({ slug: slugProp }: PropertyPageProps = {})
   const locationUrl = sanitizeExternalUrl(property.locationUrl)
     || (property.location ? buildGoogleMapsSearchUrl(property.location) : undefined);
 
+  const canonicalPath = getPropertyCanonicalPath(property);
+
   return (
     <>
+      <Seo
+        title={buildPropertyTitle(property)}
+        description={buildPropertyDescription(property)}
+        canonicalPath={canonicalPath}
+        ogType="article"
+        ogImage={getPropertyOgImage(property)}
+        ogImageAlt={`${property.name} - ${property.location}`}
+        keywords={getPropertyKeywords(property)}
+        jsonLd={[
+          buildPropertyListingJsonLd(property),
+          buildPropertyBreadcrumbJsonLd(property),
+        ]}
+      />
       <Navbar />
       <PropertiesLayout
         title={property.name}
@@ -50,4 +72,3 @@ export default function PropertyPage({ slug: slugProp }: PropertyPageProps = {})
     </>
   );
 }
-

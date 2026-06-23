@@ -211,7 +211,7 @@ export default function PropertiesLayout({
                                 location
                             )}
                         </p>
-                        <h2 className="properties-details__title">{title}</h2>
+                        <h1 className="properties-details__title">{title}</h1>
                         <p className="properties-details__description">{description}</p>
                         <div className="properties-details__features">
                             {plantas[plantIndex] && (

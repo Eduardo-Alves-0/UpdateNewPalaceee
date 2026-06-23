@@ -59,8 +59,10 @@ export default function Properties() {
                             <div className="properties-card-image-wrap">
                                 <img
                                     src={item.image}
-                                    alt={item.name}
+                                    alt={`Fachada do empreendimento ${item.name} em ${item.location}`}
                                     className="properties-card-image"
+                                    loading="lazy"
+                                    decoding="async"
                                 />
                             </div>
                             <div className="properties-card-body">
@@ -83,8 +85,12 @@ export default function Properties() {
                                         {item.area} m²
                                     </span>
                                 </div>
-                                <Link to={item.link ?? "/"} className="properties-card-btn">
-                                    Saiba Mais
+                                <Link
+                                    to={item.link ?? "/"}
+                                    className="properties-card-btn"
+                                    aria-label={`Ver detalhes de ${item.name}`}
+                                >
+                                    Ver {item.name}
                                 </Link>
                             </div>
                         </article>

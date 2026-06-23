@@ -5,6 +5,7 @@ import "@fontsource/kantumruy-pro/700.css";
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { LazyMotion, domAnimation } from 'motion/react'
 import App from './App.tsx'
 import ScrollRestoration from './components/ScrollRestoration'
@@ -20,11 +21,13 @@ if ("scrollRestoration" in history) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
-      <LazyMotion features={domAnimation} strict>
-        <ScrollRestoration />
-        <App />
-      </LazyMotion>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <LazyMotion features={domAnimation} strict>
+          <ScrollRestoration />
+          <App />
+        </LazyMotion>
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )
