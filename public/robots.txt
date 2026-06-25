@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://imobiliarianewpalace.com.br/sitemap.xml
+Sitemap: https://www.imobiliarianewpalace.com.br/sitemap.xml
