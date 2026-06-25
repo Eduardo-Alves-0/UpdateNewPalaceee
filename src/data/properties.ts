@@ -139,7 +139,7 @@ export const properties: Property[] = [
             { id: 14, src: "v1782161482/alamedaDosPassarosQuarto2_qogmac.jpg", alt: "Quarto Infantil", title: "Quarto Infantil" },
         ],
         plantaData: [
-            { id: 1, name: "Plantas Tipo", src: "v1782161479/alamedaDosPassarosPlanta_emqykp.jpg", alt: "Planta Tipo", title: "Planta Tipo", area: "36,73 m²", quartos: 2, banheiros: 1, varanda: false },
+            { id: 1, name: "Planta Tipo", src: "v1782161479/alamedaDosPassarosPlanta_emqykp.jpg", alt: "Planta Tipo", title: "Planta Tipo", area: "36,73 m²", quartos: 2, banheiros: 1, varanda: false },
         ],
     },
     {
