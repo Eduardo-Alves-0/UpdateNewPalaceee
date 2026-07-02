@@ -161,6 +161,7 @@ function App() {
         <Route path="/pontal-maracaipe" element={<PropertyPage slug="pontal-maracaipe" />} />
         <Route path="/engenho-paulista" element={<PropertyPage slug="engenho-paulista" />} />
         <Route path="/bandeirantes" element={<PropertyPage slug="bandeirantes" />} />
+        <Route path="/torres-marina" element={<PropertyPage slug="torres-marina" />} />
         
       </Routes>
       <Analytics />
