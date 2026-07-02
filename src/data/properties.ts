@@ -350,7 +350,7 @@ export const properties: Property[] = [
     {
         id: "46",
         image: getCloudinaryUrl("v1783001609/fachada_-_estrada_dos_marcos_2_wlbs5t.png"),
-        name: "Estrada dos Marcos",
+        name: "Estrada dos Marcos II",
         location: "Estr. dos Marcos, Marcos, Igarassu - PE",
         city: "igarassu",
         bedrooms: 2,
